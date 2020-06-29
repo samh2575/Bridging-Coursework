@@ -3,13 +3,30 @@ h1 a, h2 a {
 }
 
 html {
-    background-color: #474747;
+    background-color: #7e7e7e;
 }
 
 body {
     padding-left: 15px;
-    background-color: #474747
+    background-color: #7e7e7e;
 }
+
+a:link{
+    color:#000000;
+  }
+  a:visited{
+    color: #000000;
+  }
+  a:hover{
+    color:orange;
+
+  }
+  a:focus{
+    color:#000000;
+  }
+  a:active{
+    color:#000000;
+  }
 
 .page-header {
     background-color: #0a5300;
@@ -33,7 +50,7 @@ h1, h2, h3, h4 {
 }
 
 .date {
-    color: #828282;
+    color: #3d3c3c;
 }
 
 .save {
@@ -46,13 +63,14 @@ h1, h2, h3, h4 {
 
 .top-menu, .top-menu:hover, .top-menu:visited {
     color: #000000;
-    background-color: #0a5300;
+    background-color: none;
     font-family: 'Montserrat', sans-serif;
-    padding: 20px 20px 20px 100px;
     float: right;
     font-size: 20pt;
-    margin-right: 30pt;
-    margin-left: 0pt;
+}
+
+.menu_item{
+    padding: 10px 10px 10px 10px;
 }
 
 .post {
@@ -65,8 +83,43 @@ h1, h2, h3, h4 {
 
 .subtitle {
     font-size: 40pt;
-    color: #ffffff;
+    color: #000000;
     margin-left: 20px;
     padding: 20px 20px 20px 40px;
-
 }
+
+.content {
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+
+.image {
+    border-radius: 25px;
+    padding: 0px 0px 0px 0px;
+}
+
+.image_text {
+    margin-left: 350px;
+    margin-top: 50px;
+    font-size: 18pt;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+
+  .socials {
+    margin-top: 450px;
+    margin-bottom: 30px;
+    margin-left: 0px;
+  }

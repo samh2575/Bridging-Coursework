@@ -1,21 +1,43 @@
 h1 a, h2 a {
-    font-family: "Courier New", Courier, monospace;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    background-color: #7e7e7e;
 }
 
 body {
     padding-left: 15px;
+    background-color: #7e7e7e;
 }
+
+a:link{
+    color:#000000;
+  }
+  a:visited{
+    color: #000000;
+  }
+  a:hover{
+    color:orange;
+
+  }
+  a:focus{
+    color:#000000;
+  }
+  a:active{
+    color:#000000;
+  }
 
 .page-header {
     background-color: #0a5300;
-    margin-top: 10;
+    margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active, .page-header h2 {
     color: #ffffff;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 40pt;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50pt;
     text-decoration: none;
 }
 
@@ -24,11 +46,11 @@ body {
 }
 
 h1, h2, h3, h4 {
-    font-family: "Courier New", Courier, monospace;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .date {
-    color: #828282;
+    color: #3d3c3c;
 }
 
 .save {
@@ -41,11 +63,14 @@ h1, h2, h3, h4 {
 
 .top-menu, .top-menu:hover, .top-menu:visited {
     color: #000000;
-    background-color: #0a5300;
-    padding: 20px 20px 20px 40px;
+    background-color: none;
+    font-family: 'Montserrat', sans-serif;
     float: right;
     font-size: 20pt;
-    margin-right: 30pt;
+}
+
+.menu_item{
+    padding: 10px 10px 10px 10px;
 }
 
 .post {
@@ -57,9 +82,44 @@ h1, h2, h3, h4 {
 }
 
 .subtitle {
-    font-size: 30pt;
+    font-size: 40pt;
     color: #000000;
-    margin-left: 40px;
+    margin-left: 20px;
     padding: 20px 20px 20px 40px;
-
 }
+
+.content {
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+
+.image {
+    border-radius: 25px;
+    padding: 0px 0px 0px 0px;
+}
+
+.image_text {
+    margin-left: 350px;
+    margin-top: 50px;
+    font-size: 18pt;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+
+  .socials {
+    margin-top: 450px;
+    margin-bottom: 30px;
+    margin-left: 0px;
+  }
