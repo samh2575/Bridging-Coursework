@@ -66,6 +66,7 @@ h1, h2, h3, h4 {
     background-color: none;
     font-family: 'Montserrat', sans-serif;
     float: right;
+    margin-right: 20px;
     font-size: 20pt;
 }
 
