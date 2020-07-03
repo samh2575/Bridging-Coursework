@@ -1,0 +1,14 @@
+{% extends 'cv/base.html' %}
+
+{% block content %}
+<p class='subtitle'>Edit CV</p>
+<div class='form'>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% load static %}
+<html>
+    <head>
+        <title>Sam's Blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/cv.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Sam Harrison</a></h1>    
+        </div>
+        <div class="top-menu">
+            <a href="/" class=menu_item>About Me</a>
+            <a href="/blog/" class=menu_item>Blog</a>
+            <a href="/cv/" class=menu_item>CV</a>
+            {% if user.is_authenticated %}
+                <a href="/blog/post/new" class="top-menu">New</a>
+            {% endif %}
+        </div>
+        <div class="subtitle">
+            <a href='/cv/'>Curriculum Vitae</a>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+    <div class='socials'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <a href="https://www.facebook.com/sam.harrison.988926/" class="fa fa-facebook"></a>
+        <a href="https://twitter.com/Sam77082412" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-snapchat"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="https://www.instagram.com/sam.harrison2575/" class="fa fa-instagram"></a>
+    </div>
+</html>
