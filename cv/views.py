@@ -1,14 +1,26 @@
-from django.shortcuts import render
 from django.views.generic import TemplateView
 from cv.forms import cvForm
+from django.shortcuts import render, redirect
+
 # Create your views here.
 
 def cv(request):
     return render(request, 'cv/cv.html', {})
 
-class cv_edit(TemplateView):
-    template_name = 'cv/cv_edit.html'
+def cv_edit(request):
 
-    def get(self, request):
+    if request.method == "POST":
+        form = cvForm(request.POST)
+        if form.is_valid():
+            name = form.save(commit=False)
+            name.user = request.user
+            name.save()
+
+            text = form.cleaned_data['name']
+            return redirect('cv')
+    
+        args = {'form': form, 'text': text}
+        return render(request, 'cv/cv_edit.html', args)
+    else:
         form = cvForm()
-        return render(request, self.template_name, {'form': form})
+        return render(request, 'cv/cv_edit.html', {'form': form})
