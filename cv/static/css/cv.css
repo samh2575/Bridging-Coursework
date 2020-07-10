@@ -117,11 +117,27 @@ h1, h2, h3, h4 {
     text-align: center;
     text-decoration: none;
     border-radius: 50%;
-  }
+}
 
-  .socials {
+.socials {
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 10px;
     float: bottom;
-  }
+}
+
+#id_about {
+    width: 1000px;
+    height: 150px;
+}
+
+#id_work {
+    width: 1000px;
+    height: 150px;
+}
+
+#id_education {
+    width: 1000px;
+    height: 150px;
+}
+

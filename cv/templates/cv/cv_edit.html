@@ -5,6 +5,7 @@
 <div class='form'>
     <form method="post">
         {% csrf_token %}
+        {{ value|wordwrap:50|linebreaks }}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
