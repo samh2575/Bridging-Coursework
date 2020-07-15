@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.cv_view, name="cv"),
-    path('edit/', views.cv_edit, name='cv_edit'),
+    path('edit/', views.cv_edit, name="cv_edit"),
 ]

@@ -1,15 +1,19 @@
 {% extends 'cv/base.html' %}
 
 {% block content %}
-<p class='subtitle'>Edit CV</p>
-<div class='form'>
-    <form method="post">
-        {% csrf_token %}
-        {{ value|wordwrap:50|linebreaks }}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
-</div>
 
+{% if user.is_authenticated %}
+    <p class='subtitle'>Edit CV</p>
+    <div class='form'>
+        <form method="post">
+            {% csrf_token %}
+            {{ value|wordwrap:50|linebreaks }}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Save</button>
+        </form>
+    </div>
+{% else %}
+<p class='subtitle'>Access Denied</p>
+{% endif %}
 
 {% endblock %}
