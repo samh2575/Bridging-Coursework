@@ -1,44 +1,63 @@
-from django.urls import resolve
 from django.test import TestCase
-from blog.views import post_list
+from django.urls import resolve
 from django.http import HttpRequest
-from django.http import HttpResponse
-from django.test import Client
-# Create your tests here.
+from django.urls import reverse
 
-# class SmokeTest(TestCase):
+from blog.models import Post as blog_model
+from django.contrib.auth.models import User
+from django.utils import timezone
+import time
 
-#     def test_bad_maths(self):
-#         self.assertEqual(1 + 1, 3)
+class Test_Database(TestCase):
+    
+    me = User.objects.get(username='sam')
 
-class HomePageTest(TestCase):
+    def test_blog(self, me=me):
+        test_post = blog_model.objects.create(title="test", text="test2", author=me, created_date=timezone.now(), published_date=timezone.now())
+        time.sleep(1)
+        self.assertEqual(test_post.title, 'test')
+        self.assertEqual(test_post.text, 'test2')
+        self.assertEqual(test_post.author, me)
 
-    # def test_root_url_resolves_to_home_page_view(self):
-    #     found = resolve('/')  
-    #     self.assertEqual(found.func, post_list)
 
-    def test_uses_home_template(self):
-        response = self.client.get('/')
+class BlogPageTests(TestCase):
+
+    def test_blog_page_status_code(self):
+        response = self.client.get('/blog/')
+        self.assertEquals(response.status_code, 200)
+
+    def test_view_url_by_name(self):
+        response = self.client.get(reverse('post_list'))
+        self.assertEquals(response.status_code, 200)
+
+    def test_new_view_url_by_name(self):
+        response = self.client.get(reverse('post_new'))
+        self.assertEquals(response.status_code, 200)
+
+    def test_view_uses_correct_template(self):
+        response = self.client.get(reverse('post_list'))
+        self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'blog/post_list.html', 'blog/base.html')
 
-    # def test_home_page_returns_correct_html(self):
+    def test_new_view_uses_correct_template(self):
+        response = self.client.get(reverse('post_new'))
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog/post_edit.html', 'blog/base.html')
 
-    #     response = self.client.get('/')
-    #     html = response.content.decode('utf8')
-    #     self.assertTrue(html.startswith('<html>'))
-    #     self.assertIn("<title>Sam's Blog</title>", html)
-    #     self.assertTrue(html.strip().endswith('</html>'))
-    #     ​self.assertTemplateUsed(response, 'post_list.html')
+    def test_blog_new_contains_correct_html(self):
+        response = self.client.get('/blog/post/new/')
+        self.assertContains(response, 'Blog') ## change ##
 
-        # #We create a HttpRequest object, which is what Django will see when a user’s browser asks for a page.
-        # request = HttpRequest()
-        # #We pass it to our home_page view, which gives us a response. You won’t be surprised to hear that this object is an instance of a class called HttpResponse.
-        # response = post_list(request)
-        # #Then, we extract the .content of the response. These are the raw bytes, the ones and zeros that would be sent down the wire to the user’s browser. We call .decode() to convert them into the string of HTML that’s being sent to the user.
-        # html = response.content.decode('utf8')
-        # #We want it to start with an <html> tag which gets closed at the end*.
-        # self.assertTrue(html.strip().startswith('<html>'))#'<div class="post">'))
-        # #And we want a <title> tag somewhere in the middle, with the words "Sams Blog" in it—​because that’s what we specified in our functional test.
-        # self.assertIn("<title>Sam's Blog</title>", html)
-        # #*closed at the end
-        # self.assertTrue(html.strip().endswith('</html>'))#'</div>'))
+    def test_blog_page_contains_correct_html(self):
+        response = self.client.get('/blog/')
+        self.assertContains(response, 'Blog') ## change ##
+
+    def test_blog_page_does_not_contain_incorrect_html(self):
+        response = self.client.get('/blog/')
+        self.assertNotContains(response, 'Technology Degree Apprentice at PwC, studying Computer Science at the University of Birmingham')
+    
+    def test_blog_page_does_not_contain_incorrect_html(self):
+        response = self.client.get('/blog/post/new/')
+        self.assertNotContains(response, 'published')
+
+

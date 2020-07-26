@@ -25,6 +25,9 @@ def cv_edit(request):
 
         return render(request, 'cv/cv_edit.html', {'form': form})
     else:
-        content = cv.objects.order_by('-updated')[:1]
-        form = cvForm(instance=content[0])
+        if len(cv.objects.order_by('-updated')) != 0:
+            content = cv.objects.order_by('-updated')[:1]
+            form = cvForm(instance=content[0])
+        else:
+            form = cvForm()
         return render(request, 'cv/cv_edit.html', {'form': form})
