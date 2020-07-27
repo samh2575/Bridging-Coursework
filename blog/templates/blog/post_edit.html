@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
 
+{% load markdown_extras %}
+
 {% block content %}
     {% if user.is_authenticated %}
         <h2>New post</h2>

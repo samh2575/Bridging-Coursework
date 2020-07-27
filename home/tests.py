@@ -20,9 +20,10 @@ class HomePageTest(TestCase):
 
     def test_home_page_contains_correct_html(self):
         response = self.client.get('/')
-        # self.assertContains(response, '<h1>Sam Harrison</h1>')
+        self.assertContains(response, 'Sam Harrison')
 
     def test_home_page_does_not_contain_incorrect_html(self):
         response = self.client.get('/')
         self.assertNotContains(
-            response, 'Hi there! I should not be on the page.')
+            response, 'Curriculum Vitae')
+

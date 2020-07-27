@@ -1,23 +1,33 @@
 {% extends 'cv/base.html' %}
 
+{% load markdown_extras %}
+
 {% block content %}
     {% for elements in content %}
         <h3>About Me:</h3>
-        <p id='about'>
-            {{ elements.about }}
-        </p>
+        <div class='cv_content'>
+            <p id='about'>
+                {{ elements.about | markdown | safe }}
+            </p>
+        </div>
         <h3>Work Experience:</h3>
-        <p id='work'>
-            {{ elements.work }}
-        </p>
+        <div class='cv_content'>
+            <p id='work'>
+                {{ elements.work | markdown | safe }}
+            </p>
+        </div>
         <h3>Skills:</h3>
-        <p id='skills'>
-            {{ elements.skills }}
-        </p>
+        <div class='cv_content'>
+            <p id='skills'>
+                {{ elements.skills | markdown | safe }}
+            </p>
+        </div>
         <h3>Education:</h3>
-        <p id='edu'>
-            {{ elements.education }}
-        </p>
+        <div class='cv_content'>
+            <p id='edu'>
+                {{ elements.education | markdown | safe }}
+            </p>
+        </div>
         <div class="date">
             <p id='date'>Last Updated: {{ elements.updated }}</p>
         </div>

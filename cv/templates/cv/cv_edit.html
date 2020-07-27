@@ -1,5 +1,7 @@
 {% extends 'cv/base.html' %}
 
+{% load markdown_extras %}
+
 {% block content %}
 
 {% if user.is_authenticated %}
@@ -7,9 +9,9 @@
     <div class='form'>
         <form method="post">
             {% csrf_token %}
-            {{ value|wordwrap:50|linebreaks }}
+            {{ value | linebreaks }}
             {{ form.as_p }}
-            <button id= "submitbtn" type="submit" class="save btn btn-default">Save</button>
+            <button id="submitbtn" type="submit" class="save btn btn-default">Save</button>
         </form>
     </div>
 {% else %}

@@ -13,12 +13,12 @@ class Test_Database(TestCase):
     me = User.objects.get(username='sam')
 
     def test_cv(self, me=me):
-        test_entry = cv_model.objects.create(about="test", work="test2", education='test3', auther=me, updated=timezone.now())
+        test_entry = cv_model.objects.create(about="test", work="test2", education='test3', author=me, updated=timezone.now())
         time.sleep(1)
         self.assertEqual(test_entry.about, 'test')
         self.assertEqual(test_entry.work, 'test2')
         self.assertEqual(test_entry.education, 'test3')
-        self.assertEqual(test_entry.auther, me)
+        self.assertEqual(test_entry.author, me)
 
 
 class cvPageTests(TestCase):

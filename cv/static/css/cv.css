@@ -146,22 +146,7 @@ h1, h2, h3, h4 {
     height: 150px;
 }
 
-#about {
-    background-color: #949494;
-}
-
-#work {
-    background-color: #949494;
-}
-
-#skills {
-    background-color: #949494;
-
-}
-
-#edu {
-    /* width: 1000px;
-    height: 150px; */
-    background-color: #949494;
+.cv_content {
+    background-color: #a0a0a0;
 }
 
