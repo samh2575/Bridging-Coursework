@@ -22,4 +22,3 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('cv/', include('cv.urls')),
 ]
-    
