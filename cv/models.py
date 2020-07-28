@@ -8,5 +8,5 @@ class cv(models.Model):
     work = models.TextField()
     skills = models.TextField()
     education = models.TextField()
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     updated = models.DateTimeField(blank=True, null=True)
