@@ -7,7 +7,7 @@
     <div class='form'>
         <form method="post">
             {% csrf_token %}
-            {{ value | linebreaks }}
+            {{ value | linebreaksbr }}
             {{ form.as_p }}
             <button id="submitbtn" type="submit" class="save btn btn-default">Save</button>
         </form>
