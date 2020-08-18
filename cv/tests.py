@@ -2,23 +2,13 @@ from django.test import *
 from django.urls import resolve
 from django.http import HttpRequest
 from django.urls import *
+from django.shortcuts import get_object_or_404
+
 
 from cv.models import cv as cv_model
 from django.contrib.auth.models import User
 from django.utils import timezone
 import time
-
-class Test_Database(TestCase):
-    
-    me = User.objects.get(username='sam')
-
-    def test_cv(self, me=me):
-        test_entry = cv_model.objects.create(about="test", work="test2", education='test3', author=me, updated=timezone.now())
-        time.sleep(1)
-        self.assertEqual(test_entry.about, 'test')
-        self.assertEqual(test_entry.work, 'test2')
-        self.assertEqual(test_entry.education, 'test3')
-        self.assertEqual(test_entry.author, me)
 
 
 class cvPageTests(TestCase):

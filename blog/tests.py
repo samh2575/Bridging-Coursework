@@ -8,17 +8,6 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 import time
 
-class Test_Database(TestCase):
-    
-    me = User.objects.get(username='sam')
-
-    def test_blog(self, me=me):
-        test_post = blog_model.objects.create(title="test", text="test2", author=me, created_date=timezone.now(), published_date=timezone.now())
-        time.sleep(1)
-        self.assertEqual(test_post.title, 'test')
-        self.assertEqual(test_post.text, 'test2')
-        self.assertEqual(test_post.author, me)
-
 
 class BlogPageTests(TestCase):
 

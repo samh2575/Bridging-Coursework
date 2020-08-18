@@ -1,0 +1,24 @@
+# class Test_Database(TestCase):
+    
+#     me = User.objects.get(username='sam')
+
+#     def test_blog(self, me=me):
+#         test_post = blog_model.objects.create(title="test", text="test2", author=me, created_date=timezone.now(), published_date=timezone.now())
+#         time.sleep(1)
+#         self.assertEqual(test_post.title, 'test')
+#         self.assertEqual(test_post.text, 'test2')
+#         self.assertEqual(test_post.author, me)
+
+
+# class Test_Database(TestCase):
+    
+#     me = User.objects.get(username='testuser')
+#     # me = get_object_or_404(User, pk=1)
+
+#     def test_cv(self, me=me):
+#         test_entry = cv_model.objects.create(about="test", work="test2", education='test3', author=me, updated=timezone.now())
+#         time.sleep(1)
+#         self.assertEqual(test_entry.about, 'test')
+#         self.assertEqual(test_entry.work, 'test2')
+#         self.assertEqual(test_entry.education, 'test3')
+#         self.assertEqual(test_entry.author, me)
